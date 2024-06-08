@@ -1,0 +1,193 @@
+/* styles.css */
+
+/* Reset some default styling */
+body, h1, h2, h3, ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set the body background color and font */
+body {
+    background-color: rgb(246, 203, 255);
+    font-family: 'Comic Sans MS', cursive;
+    line-height: 1.6;
+    color: #333;
+}
+
+header {
+    background: rgb(0, 0, 0);
+    font-family: Copperplate, Papyrus, fantasy;
+    padding: 1px 0;
+    position: fixed; /* Make the header sticky */
+    width: 100%;
+    top: 0;
+    z-index: 1000; /* Ensure it's above other content */
+}
+
+header .logo {
+    margin-left: 20px; 
+}
+
+header .logo-text {
+    font-size: 1.8rem; 
+    font-weight: bold;
+    color: #8800ef; 
+    text-decoration: none; 
+}
+
+header nav {
+    display: flex;
+    justify-content: center;
+}
+
+header nav a {
+    color: #8800ef;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+
+/* Add some padding to sections */
+section {
+    padding: 20px;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+section h1, section h2 {
+    color: #7b1fa2;
+}
+
+section ul {
+    list-style-type: none;
+}
+
+section ul li {
+    margin-bottom: 10px;
+}
+
+/* Footer style */
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background: #000000;
+    color: #8800ef;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Slideshow styles */
+.slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: 130px auto 20px; /* Adjust top margin here */
+    overflow: hidden; 
+}
+
+.mySlides img {
+    width: 100%; 
+    height: auto; 
+}
+
+.display-left,
+.display-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    padding: 10px 15px;
+    z-index: 1000;
+}
+
+.display-left {
+    left: 10px;
+}
+
+.display-right {
+    right: 10px;
+}
+
+/* Contact section styles */
+section#contact {
+    background-color: rgb(249, 228, 254);
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+section#contact h2 {
+    color: #7b1fa2;
+    margin-bottom: 20px;
+}
+
+section#contact .contact-columns {
+    display: flex;
+    justify-content: space-around;
+}
+
+section#contact .column {
+    flex: 1;
+    margin: 0 10px;
+}
+
+section#contact ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+section#contact ul li {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+section#contact ul li a {
+    color: #333; /* Adjust link color */
+    text-decoration: none;
+}
+
+section#contact ul li a:hover {
+    text-decoration: underline;
+    color: #7b1fa2; /* Adjust link hover color */
+}
+
+section#courses {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgb(249, 228, 254);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.course-tiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.course-tile {
+    display: block;
+    padding: 20px;
+    border: 1px solid #ccc;
+    text-decoration: none;
+    color: #333;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.course-tile:hover {
+    transform: translateY(-5px);
+}

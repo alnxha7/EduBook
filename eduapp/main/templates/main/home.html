@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Learning Platform</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'main/styles.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{% static 'js/scripts.js' %}"></script>
+</head>
+<body>
+    <header id="navbar">
+        <div class="logo">
+            <span class="logo-text">ΣｄｕＢｏoｋ</span>
+        </div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#courses">Courses</a>
+            <a href="#contact">Contact Us</a>
+            <a href="#">Login</a>
+            <a href="#">Signup</a>
+        </nav>
+    </header>
+    <main>
+        <!-- Slideshow container -->
+        <div class="slideshow-container">
+            <div class="mySlides">
+                <img src="{% static 'images/quote_1.png' %}" alt="Slide 1">
+            </div>
+            <div class="mySlides">
+                <img src="{% static 'images/quote_2.jpg' %}" alt="Slide 2">
+            </div>
+            <div class="mySlides">
+                <img src="{% static 'images/quote_4.jpg' %}" alt="Slide 3">
+            </div>
+        </div>
+
+        <button class="display-left" onclick="plusDivs(-1)">&#10094;</button>
+        <button class="display-right" onclick="plusDivs(1)">&#10095;</button>
+
+        <section id="home">
+            <h1>Welcome to edubook</h1>
+            <h4>Our programs focus on developing the entire education technology and innovation sector in information technology.</h4>
+            <p>Edubook is India's education technology and innovation industry hub. Through connection and collaboration, we accelerate India's EdTech ecosystem globally.</p>
+            <p>We connect a community of education providers, industry participants, and EdTech entrepreneurs committed to reimagining learning in the digital age.</p>
+            <p>As education transitions to borderless digital delivery, our diverse ecosystem will impact the future of learning globally from India.</p>
+            <p>We have a range of services supporting EdTech companies at each stage of their journey, whilst also connecting education providers and industry participants into the broader ecosystem.</p>
+        </section>
+        <section id="courses">
+            <h2>Our Courses</h2>
+            <div class="course-tiles">
+                {% for course in courses %}
+                    <a href="/login" class="course-tile">
+                        <h3>{{ course.title }}</h3>
+                        <p>{{ course.description }}</p>
+                    </a>
+                {% endfor %}
+            </div>
+        </section>
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <div class="contact-columns">
+                <div class="column">
+                    <ul>
+                        {% for office in contact_info.offices %}
+                            <li>{{ office }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="column">
+                    <ul>
+                        <li><a href="mailto:{{ contact_info.email1 }}">{{ contact_info.email1 }}</a></li>
+                        <li><a href="mailto:{{ contact_info.email2 }}">{{ contact_info.email2 }}</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        &copy; ΣｄｕＢｏoｋ
+    </footer>
+</body>
+</html>
