@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admin-locked</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            color: #871287;
+            padding-bottom: 50px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 50px;
+        }
+        h1, h2, h3 {
+            text-align: center;
+            color: #871287;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #871287;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 30px;
+        }
+        button:hover {
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="{% url 'dashboard' %}">Home</a>
+        <h1>sorry !! You cannot access this page right now</h1><br>
+        <button id="back-button">Go Back</button>
+    </div>
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+    const backButton = document.getElementById("back-button");
+
+    if (backButton) {
+        backButton.addEventListener("click", () => {
+            window.history.back();
+        });
+    }
+});
+</script>
+</html>

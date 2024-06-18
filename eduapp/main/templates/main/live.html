@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videomeet</title>
+    <script defer src="{% static 'js/app.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'main/styles.css' %}">
+</head>
+<body>
+    <div class="live-container">
+        <div class="left-section">
+            <img class="profile-photo" src="../static/images/img_1.png" alt="Profile Photo">
+            <p>Name: {{request.user}}</p>
+        </div>
+        <div class="middle-section">
+            <div class="live-video">
+                <video id="live-video" autoplay muted></video>
+            </div>
+            <div class="control-bar">
+                <button id="mic-button" class="control-button">Mic Off</button>
+                <button id="camera-button" class="control-button">Camera Off</button>
+                <button id="share-screen-button" class="control-button">Share Screen</button>
+                <button id="end-call-button" class="control-button">End Call</button>
+            </div>
+        </div>
+        <div class="right-section">
+            <div class="logo-frame">
+                <img class="logo" src="../static/images/logo.png" alt="Videomeet Logo">
+            </div>
+            <div class="people-list">
+                <p>Attending:</p>
+                <div class="attendee">
+                    <img class="attendee-photo" src="../static/images/img_1.png" alt="User 1">
+                    <p>{{request.user}}</p>
+                </div>
+                <div class="attendee">
+                    <img class="attendee-photo" src="../static/images/img_1.png" alt="User 2">
+                    <p>{{course.trainer_name}} (Trainer)</p>
+                </div>
+
+            </div>
+            <div class="notes-section">
+                <button id="notes-button" class="control-button">Notes</button>
+                <div id="notes-area" class="hidden">
+                    <div id="chat-display" class="chat-display"></div>
+                    <textarea id="notes-input" placeholder="Type your notes here..."></textarea>
+                    <button id="send-notes-button" class="control-button">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

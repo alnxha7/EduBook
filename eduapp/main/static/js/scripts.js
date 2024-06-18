@@ -1,3 +1,5 @@
+ // Initialization for ES Users
+
 $(document).ready(function() {
     $('nav a').on('click', function(event) {
         if (this.hash !== "") {

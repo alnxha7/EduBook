@@ -51,9 +51,11 @@
             <h2>Our Courses</h2>
             <div class="course-tiles">
                 {% for course in courses %}
-                    <a href="/login" class="course-tile">
+                    <a href="{% url 'signup' %}" class="course-tile">
                         <h3>{{ course.title }}</h3>
                         <p>{{ course.description }}</p>
+
+
                     </a>
                 {% endfor %}
             </div>

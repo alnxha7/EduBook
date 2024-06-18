@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Certificates</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            color: #871287;
+            padding-bottom: 50px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 50px;
+        }
+        h1, h2, h3 {
+            text-align: center;
+            color: #871287;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="email"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .csrf-token {
+            display: none;
+        }
+        button {
+            display: block;
+            width: 30%;
+            text-align: center;
+
+            padding: 10px;
+            background-color: #871287;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 30px;
+            margin-left: 500px;
+        }
+        button:hover {
+            background-color: pink;
+        }
+        form{
+        text-align: center;}
+    </style>
+
+
+</head>
+<body>
+    <a href="{% url 'dashboard' %}"> Home</a>
+    <h1>Step:4 Certificates Upload</h1>
+    <h2>Kindly Upload Your Certificates</h2>
+    <h3>Accetable Formats .pdf, .doc, .docx</h3>
+    <br><br>
+    <form method="post" enctype="multipart/form-data">
+
+        <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}" class="csrf-token">
+
+        <label for="certificate1">10th:</label>
+        <input type="file" id="certificate1" name="certificate" accept=".pdf, .png, .jpg" required>
+
+        <label for="certificate2">12th:</label>
+        <input type="file" id="certificate2" name="certificate" accept=".pdf, .png, .jpg" required>
+
+        <label for="certificate3">Degree:</label>
+        <input type="file" id="certificate3" name="certificate" accept=".pdf, .png, .jpg" required>
+        <br><br>
+        <button type="submit">Upload</button>
+    </form>
+
+    {% if success_message %}
+        <h3>{{ success_message }}</h3>
+    {% endif %}
+
+</body>
+</html>

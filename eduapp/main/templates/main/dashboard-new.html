@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>edubook.com</title>
+    <link href="static/main/animate.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <style>
+        img.animated.pulse {
+    animation-duration: 3s;
+}
+
+/*** Button ***/
+.btn {
+    font-weight: 500;
+    transition: .5s;
+}
+
+.btn.btn-primary {
+    color: var(--bs-white);
+}
+
+.btn-square {
+    width: 38px;
+    height: 38px;
+}
+
+.btn-sm-square {
+    width: 32px;
+    height: 32px;
+}
+
+.btn-lg-square {
+    width: 48px;
+    height: 48px;
+}
+
+.btn-square,
+.btn-sm-square,
+.btn-lg-square {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: normal;
+    border-radius: 50px;
+}
+
+
+/*** Navbar ***/
+.sticky-top {
+    top: -150px;
+    transition: .5s;
+    background: url('https://media.istockphoto.com/id/1349346348/vector/abstract-background-4k-pink-lilac-lavender-black-white-light-dark-waves-and-lines.jpg?s=612x612&w=0&k=20&c=OkHpH2B7lOb61zHbrsG24LAecoOSj7w7y0QL_wemV8s=') center center no-repeat;
+    background-size: cover;
+
+}
+
+.navbar  {
+    background-color: transparent;
+    padding: 11px 0 !important;
+    height: 85px;
+}
+
+.navbar .navbar-nav .nav-link {
+background-color: transparent;
+    margin-right: 45px;
+    padding: 0;
+    color: var(--bs-dark);
+    font-weight: 500;
+    transition: .5s;
+    outline: none;
+}
+
+.navbar .navbar-nav .nav-link:hover,
+.navbar .navbar-nav .nav-link.active {
+    color: var(--bs-white);
+}
+
+.navbar .dropdown-toggle::after {
+    border: none;
+    content: "\f107";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    vertical-align: middle;
+    margin-left: 8px;
+}
+
+@media (max-width: 991.98px) {
+    .navbar .navbar-nav {
+        padding: 0 15px;
+        background: var(--bs-primary);
+    }
+
+    .navbar .navbar-nav .nav-link  {
+        margin-right: 0;
+        padding: 10px 0;
+    }
+}
+
+@media (min-width: 992px) {
+    .navbar .nav-item .dropdown-menu {
+        display: block;
+        border: none;
+        margin-top: 0;
+        top: 150%;
+        opacity: 0;
+        visibility: hidden;
+        transition: .5s;
+    }
+
+    .navbar .nav-item:hover .dropdown-menu {
+        top: 100%;
+        visibility: visible;
+        transition: .5s;
+        opacity: 1;
+    }
+}
+
+
+/*** Hero Header ***/
+.hero-header {
+    position: relative;
+    margin-top: -85px;
+    padding-top: 12rem;
+    padding-bottom: 6rem;
+    background: url('https://media.istockphoto.com/id/1349346348/vector/abstract-background-4k-pink-lilac-lavender-black-white-light-dark-waves-and-lines.jpg?s=612x612&w=0&k=20&c=OkHpH2B7lOb61zHbrsG24LAecoOSj7w7y0QL_wemV8s=') center center no-repeat;
+    background-size: cover;
+}
+
+.hero-header::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, .1);
+    clip-path: polygon(66% 0, 100% 0, 100% 100%, 33% 100%);
+}
+
+.hero-header .container {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-header .breadcrumb-item+.breadcrumb-item::before {
+    color: var(--bs-light);
+}
+
+
+.slideInDown {
+  animation-name: slideInDown;
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translate3d(-100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slideInLeft {
+  animation-name: slideInLeft;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slideInRight {
+  animation-name: slideInRight;
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translate3d(0, 100%, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slideInUp {
+  animation-name: slideInUp;
+}
+
+@keyframes slideOutDown {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    visibility: hidden;
+    transform: translate3d(0, 100%, 0);
+  }
+}
+
+.slideOutDown {
+  animation-name: slideOutDown;
+}
+
+@keyframes slideOutLeft {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    visibility: hidden;
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+.slideOutLeft {
+  animation-name: slideOutLeft;
+}
+
+@keyframes slideOutRight {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    visibility: hidden;
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+.slideOutRight {
+  animation-name: slideOutRight;
+}
+
+@keyframes slideOutUp {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    visibility: hidden;
+    transform: translate3d(0, -100%, 0);
+  }
+}
+
+.slideOutUp {
+  animation-name: slideOutUp;
+}
+        fade-in-top {
+            animation: fadeInTop 2s ease-in-out forwards;
+        }
+
+        @keyframes fadeInTop {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fade-in-left {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+         @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        .fade-in-left {
+            animation: fadeInLeft 4s ease-in-out;
+        }
+        .animated-text {
+            animation: fade-in-left 2s ease-in-out;
+        }
+
+        @keyframes blink {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .blink {
+            animation: blink 2s infinite;
+        }
+        .card:hover {
+            animation: tada 1s;
+        }
+
+           .section_our_solution .row {
+  align-items: center;
+}
+
+.our_solution_category {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.our_solution_category .solution_cards_box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.solution_cards_box .solution_card {
+  flex: 0 50%;
+  background: #fff;
+  box-shadow: 0 2px 4px 0 rgba(136, 144, 195, 0.2),
+    0 5px 15px 0 rgba(37, 44, 97, 0.15);
+  border-radius: 15px;
+  margin: 8px;
+  padding: 10px 15px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  min-height: 265px;
+  transition: 0.7s;
+}
+
+.solution_cards_box .solution_card:hover {
+  background: #309df0;
+  color: #fff;
+  transform: scale(1.1);
+  z-index: 9;
+}
+
+.solution_cards_box .solution_card:hover::before {
+  background: rgb(85 108 214 / 10%);
+}
+
+.solution_cards_box .solution_card:hover .solu_title h3,
+.solution_cards_box .solution_card:hover .solu_description p {
+  color: #fff;
+}
+
+.solution_cards_box .solution_card:before {
+  content: "";
+  position: absolute;
+  background: rgb(85 108 214 / 5%);
+  width: 170px;
+  height: 400px;
+  z-index: -1;
+  transform: rotate(42deg);
+  right: -56px;
+  top: -23px;
+  border-radius: 35px;
+}
+
+.solution_cards_box .solution_card:hover .solu_description  a{
+  background: #fff !important;
+  color: #309df0;
+  color:black;
+}
+
+.solution_card .solu_title h3 {
+  color: #212121;
+  font-size: 1.3rem;
+  margin-top: 13px;
+  margin-bottom: 13px;
+}
+
+.solution_card .solu_description p {
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+
+.solution_card .solu_description  a {
+  border: 0;
+  border-radius: 15px;
+  //background: linear-gradient(
+   //140deg,
+   // #42c3ca 0%,
+    //#42c3ca 50%,
+   // #42c3cac7 75%
+ // ) !important;
+ // color: #fff;
+ background: url('https://media.istockphoto.com/id/1349346348/vector/abstract-background-4k-pink-lilac-lavender-black-white-light-dark-waves-and-lines.jpg?s=612x612&w=0&k=20&c=OkHpH2B7lOb61zHbrsG24LAecoOSj7w7y0QL_wemV8s=') center center no-repeat;
+    background-size: cover;
+ color:white;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 5px 16px;
+}
+
+.our_solution_content h1 {
+  text-transform: capitalize;
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+}
+
+.hover_color_bubble {
+  position: absolute;
+  background: rgb(54 81 207 / 15%);
+  width: 100rem;
+  height: 100rem;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  top: 16rem;
+  border-radius: 50%;
+  transform: rotate(-36deg);
+  left: -18rem;
+  transition: 0.7s;
+}
+
+.solution_cards_box .solution_card:hover .hover_color_bubble {
+  top: 0rem;
+}
+
+.solution_cards_box .solution_card .so_top_icon {
+  width: 60px;
+  color: black;
+  height: 60px;
+  border-radius: 50%;
+  background: #fff;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.solution_cards_box .solution_card .so_top_icon img {
+  width: 40px;
+  height: 50px;
+  color:black;
+  object-fit: contain;
+}
+
+/*start media query*/
+@media screen and (min-width: 320px) {
+  .sol_card_top_3 {
+    position: relative;
+    top: 0;
+  }
+
+  .our_solution_category {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .our_solution_category .solution_cards_box {
+    flex: auto;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .our_solution_category .solution_cards_box {
+    flex: 1;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .sol_card_top_3 {
+    position: relative;
+    top: -3rem;
+  }}
+  .our_solution_category {
+    width: 50%;
+    margin: 0 auto;
+  }
+
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid sticky-top">
+        <div class="row">
+        <div class="col-md-12">
+        <!--<div class="container">-->
+            <nav class="navbar navbar-expand-lg navbar-light p-0">
+                <a href="#home" class="navbar-brand">
+                    <h2 class="text-white">ΣｄｕＢｏoｋ</h2>
+                </a>
+                <button type="button" class="navbar-toggler ms-auto me-0" data-bs-toggle="collapse"
+                    data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto">
+                        <p class="nav-item nav-link fs-4 fw-bold py-3 text-uppercase">WELCOME {{request.user}}</p>
+                        <a href="#" class="nav-item nav-link active py-3 fw-bold fs-5">Home</a>
+                        <a href="#courses" class="nav-item nav-link py-3 fw-bold fs-5">Courses</a>
+                        <a href="#contact" class="nav-item nav-link py-3 fw-bold fs-5">Contact us</a>
+
+                        <a href="{% url 'logout' %}" class="nav-item nav-link py-3 fw-bold fs-5">Logout</a>
+                    </div>
+                    <!--<a href="" class="btn btn-dark py-2 px-4 d-none d-lg-inline-block">Enroll Now</a>-->
+                </div>
+            </nav>
+        <!--</div>-->
+            </div>
+            </div>
+    </div>
+    <!-- Navbar End -->
+
+
+    <!-- Hero Start -->
+    <div class="container-fluid bg-primary hero-header mb-5">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6 text-center text-lg-start">
+
+                    <h1 class="display-4 text-white animated slideInRight"><span class="fw-light text-dark">ΣｄｕＢｏoｋ</span> support your professional Development</h1>
+                    <p class="text-white mb-4 animated slideInRight">All the skills you need in one place.Get Educated Online From Your Home</p>
+                    <a href="#home" class="btn btn-dark py-2 px-4 me-3 animated slideInRight">Read More</a>
+                    <a href="#contact" class="btn btn-outline-dark py-2 px-4 animated slideInRight">Contact Us</a>
+                </div>
+                <div class="col-lg-6">
+                    <img class="img-fluid animated pulse infinite" width="100%" src="https://www.kixie.com/assets/img/uploads/articles/how-to-improve-customer-service-training.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Hero End -->
+
+
+    <!-- about-->
+    <div class="container-fluid" >
+    <div class="row fade-in-left" id="home">
+        <div class="col-md-10 py-3">
+            <div class="container-xxl py-5">
+                <div class="container ">
+                    <div class="row g-5 ">
+                        <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
+                            <div class="position-relative h-100 ">
+                                <img class="img-fluid  animated pulse infinite position-absolute w-100 h-100" src="https://mintbook.com/assetsNew/img/virtual-1.png" alt="" style="object-fit: cover;">
+                            </div>
+                        </div>
+                        <div class="col-lg-6 wow fadeInUp " data-wow-delay="0.3s">
+                            <h4 class="section-title bg-white text-center text-primary pe-3 animated-text  "> 𝐀𝐛𝐨𝐮𝐭 𝐔𝐬 <hr class="hr-10 bg-primary"></h4>
+                            <h1 class="mb-4 fade-in-left ">Welcome to   ΣｄｕＢｏoｋ</h1>
+                            <p class="fade-in-left">Our programs focus on developing the entire education technology and innovation sector in information technology.</p>
+                            <p class="fade-in-left">Edubook is India's education technology and innovation industry hub. Through connection and collaboration, we accelerate India's EdTech ecosystem globally.</p>
+                            <p class="fade-in-left">As education transitions to borderless digital delivery, our diverse ecosystem will impact the future of learning globally from India.</p>
+                            <p class="fade-in-left">We have a range of services supporting EdTech companies at each stage of their journey, whilst also connecting education providers and industry participants into the broader ecosystem.</p>
+                            <div class="row gy-2 gx-4 mb-4">
+                                <div class="col-sm-6 fade-in-left">
+                                    <p class="mb-0 "><img width="30" style="filter: brightness(1) contrast(3);" src="https://th.bing.com/th/id/OIP.HxYsVaKzVGJT-Bf9SkFMlgAAAA?rs=1&pid=ImgDetMain"></img>Online Classes</p>
+                                </div>
+                                <div class="col-sm-6 fade-in-left">
+                                    <p class="mb-0"><img width="30" style="filter: brightness(1) contrast(3);" src="https://th.bing.com/th/id/OIP.HxYsVaKzVGJT-Bf9SkFMlgAAAA?rs=1&pid=ImgDetMain"></img>Skilled Instructors</p>
+                                </div>
+                                <div class="col-sm-6 fade-in-left">
+                                    <p class="mb-0"><img width="30" style="filter: brightness(1) contrast(3);" src="https://th.bing.com/th/id/OIP.HxYsVaKzVGJT-Bf9SkFMlgAAAA?rs=1&pid=ImgDetMain"></img>Resume Creation</p>
+                                </div>
+                                <div class="col-sm-6 fade-in-left">
+                                    <p class="mb-0"><img width="30" style="filter: brightness(1) contrast(3);" src="https://th.bing.com/th/id/OIP.HxYsVaKzVGJT-Bf9SkFMlgAAAA?rs=1&pid=ImgDetMain"></img>Interview preparations</p>
+                                </div>
+                                <div class="col-sm-6 fade-in-left">
+                                    <p class="mb-0"><img width="30" style="filter: brightness(1) contrast(3);" src="https://th.bing.com/th/id/OIP.HxYsVaKzVGJT-Bf9SkFMlgAAAA?rs=1&pid=ImgDetMain"></img>Placement support</p>
+                                </div>
+                                <div class="col-sm-6 fade-in-left">
+                                    <p class="mb-0"><img width="30" style="filter: brightness(1) contrast(3);" src="https://th.bing.com/th/id/OIP.HxYsVaKzVGJT-Bf9SkFMlgAAAA?rs=1&pid=ImgDetMain"></img>International Certificate</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- course -->
+
+    <div class="row" id="courses">
+            <h3 class=" m-3 bg-white text-center text-primary pe-3 animated-text "><img width="100" src="https://cdni.iconscout.com/illustration/premium/thumb/online-education-2669477-2215104.png"> 𝐏𝐨𝐩𝐮𝐥𝐚𝐫 𝐂𝐨𝐮𝐫𝐬𝐞𝐬</h3>
+            <h4 class="text-center ">The journey of a thousand miles begins with a single step.<br>Registering for the right course</h4>
+
+
+            <div class="card-group py-3 fade-in-left">
+                {% for course in course %}
+              <div class="card m-3 card-custom" >
+                  {% if course.image %}
+                <img class="card-img-top" src="{{course.image.url}}" data-width="20%" alt="Card image cap">
+                  {% endif %}
+                <div class="card-body" >
+                    <h4 class="card-title text-center fw-bold">Rs.{{ course.price}}/-</h4>
+                    <h5 class="card-title text-center">{{course.title}}</h5>
+                    <p class="card-text"><img width="15" src="https://th.bing.com/th/id/R.0e2d903d47176e8d432d64aed96ff50c?rik=rCOhbi4gmrYUiQ&riu=http%3a%2f%2finteract.berkeley.edu%2fimges%2fuser.png&ehk=C2dvHH76MofodZy2mN1QSvjixlxcwrpcV%2fcDVXqSWwU%3d&risl=&pid=ImgRaw&r=0"> &nbsp;{{course.trainer_name}}</p>
+                    <p>Rate &nbsp;<img width="50" src="https://th.bing.com/th/id/OIP.GjlnIuJ3cVN5Dv9MvwkeLAAAAA?rs=1&pid=ImgDetMain"></p>
+                    <a href="{% url 'view_course_description' id=course.id %}" style="background-size: cover; background-image: url('https://media.istockphoto.com/id/1349346348/vector/abstract-background-4k-pink-lilac-lavender-black-white-light-dark-waves-and-lines.jpg?s=612x612&w=0&k=20&c=OkHpH2B7lOb61zHbrsG24LAecoOSj7w7y0QL_wemV8s=');" class="btn  text-white" >Enroll Now</a>
+                </div>
+              </div>
+                {% endfor %}
+
+            </div>
+                </div>
+
+
+
+
+    <!-- interview process -->
+    <div class="row py-3">
+            <h3 class=" text-center bg-white text-center text-primary pe-3 animated-text " ><img width="100" src="https://joblookup.com/explore/wp-content/uploads/2020/09/interview.png">𝐈𝐧𝐭𝐞𝐫𝐯𝐢𝐞𝐰 𝐩𝐫𝐞𝐩𝐚𝐫𝐚𝐭𝐢𝐨𝐧𝐬</h3>
+            <br><br>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+            <div class="section_our_solution py-5">
+              <div class="row" id="interview" >
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                  <div class="our_solution_category">
+                    <div class="solution_cards_box">
+                      <div class="solution_card">
+                        <div class="hover_color_bubble"></div>
+                        <div class="so_top_icon">
+                            <h3>1</h3>
+                        </div>
+                        <div class="solu_title">
+                          <h3>Online Class</h3>
+                        </div>
+                        <div class="solu_description">
+                          <p>
+                            Get educated online from your home
+                          </p>
+                          <a href="{% url 'online_class' %}" class="read_more_btn btn ml-auto">Explore</a>
+                        </div>
+                      </div>
+                      <div class="solution_card">
+                        <div class="hover_color_bubble"></div>
+                        <div class="so_top_icon">
+                            <h3>4</h3>
+                        </div>
+                        <div class="solu_title">
+                          <h3>Certificate Upload </h3>
+                        </div>
+                        <div class="solu_description">
+                          <p>
+
+                          </p>
+                          <a href="{% url 'certificate' %}" class="read_more_btn">Explore</a>
+                        </div>
+                      </div>
+                    </div>
+                    <!--  -->
+                    <div class="solution_cards_box ">
+                      <div class="solution_card">
+                        <div class="hover_color_bubble"></div>
+                        <div class="so_top_icon">
+                            <h3>2</h3>
+                        </div>
+                        <div class="solu_title">
+                          <h3> Interview Preparations</h3>
+                        </div>
+                        <div class="solu_description">
+                          <p>
+                            Online Mock Test
+                          </p>
+                          <a href="{% url 'mocktest' %}" class="read_more_btn">Explore</a>
+                        </div>
+                      </div>
+                      <div class="solution_card">
+                        <div class="hover_color_bubble"></div>
+                        <div class="so_top_icon">
+                          <h3>5</h3>
+                        </div>
+                        <div class="solu_title">
+                          <h3>Placements</h3>
+                        </div>
+                        <div class="solu_description">
+
+                          <a href="{% url 'placement' %}" class="read_more_btn">Explore</a>
+                        </div>
+                      </div>
+                    </div>
+
+                      <div class="solution_cards_box sol_card_top_4">
+                      <div class="solution_card">
+                        <div class="hover_color_bubble"></div>
+                        <div class="so_top_icon">
+                            <h3>3</h3>
+                        </div>
+                        <div class="solu_title">
+                          <h3>Resume Creation</h3>
+                        </div>
+                        <div class="solu_description">
+                          <p>
+                            Resume building workshop
+                          </p>
+                          <a href="{% url 'resume_creation' %}" class="read_more_btn">Explore</a>
+                        </div>
+                      </div>
+                      <div class="solution_card">
+                        <div class="hover_color_bubble"></div>
+                        <div class="so_top_icon">
+                          <h3>6</h3>
+                        </div>
+                        <div class="solu_title">
+                          <h3>Top Company</h3>
+                        </div>
+                        <div class="solu_description">
+
+                          <a href="{% url 'company' %}" class="read_more_btn">Explore</a>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <br><br>
+
+    <!--course-->
+    <div class="row bg-dark text-white">
+            <div class="col-md-10 m-5 py-3 ">
+                <section id="contact">
+                    <h4 class="text-center  text-primary pe-3 animated-text">Contact Us</h4>
+                    <div class="contact-columns d-flex justify-content-around">
+                        <div class="column">
+
+                            <ul>
+                                <h5>Address</h5>
+                                {% for office in contact_info.offices %}
+                                    <li style="list-style-type: none;">{{ office }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="column">
+
+                            <ul>
+                                <h5>Contact</h5>
+                                <li style="list-style-type: none;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+  <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/>
+</svg> &nbsp;<a href="mailto:{{ contact_info.email1 }}" class="text-white">{{ contact_info.email1 }}</a></li>
+                                <li style="list-style-type: none;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+  <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/>
+</svg>&nbsp;<a href="mailto:{{ contact_info.email2 }}" class="text-white">{{ contact_info.email2 }}</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+</body>
+</html>

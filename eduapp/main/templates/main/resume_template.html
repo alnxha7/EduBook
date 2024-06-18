@@ -1,0 +1,49 @@
+<!-- resume_template.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resume</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1, h2, h3 {
+            color: #871287;
+            text-align: center;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            border-bottom: 1px solid #871287;
+            padding-bottom: 5px;
+        }
+        .section p {
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <h2>Personal Information</h2>
+        <p><strong>Name:</strong> {{ name }}</p>
+        <p><strong>Email:</strong> {{ email }}</p>
+        <p><strong>Phone:</strong> {{ phone }}</p>
+    </div>
+    <div class="section">
+        <h2>Education</h2>
+        <p>{{ education }}</p>
+    </div>
+    <div class="section">
+        <h2>Work Experience</h2>
+        <p>{{ work_experience }}</p>
+    </div>
+    <div class="section">
+        <h2>Skills</h2>
+        <p>{{ skills }}</p>
+    </div>
+</body>
+</html>

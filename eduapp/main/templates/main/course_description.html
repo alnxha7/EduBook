@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <style>
+        #header_row{
+            background-image: url('https://media.istockphoto.com/id/1349346348/vector/abstract-background-4k-pink-lilac-lavender-black-white-light-dark-waves-and-lines.jpg?s=612x612&w=0&k=20&c=OkHpH2B7lOb61zHbrsG24LAecoOSj7w7y0QL_wemV8s=');
+            background-size: cover;
+
+        }
+    #btn1{
+    background-color:black;
+        }
+        #enroll_btn {
+            background-color: black;
+            color:white;
+        }
+        #quote4 {
+        background-image:url('https://th.bing.com/th/id/OIP.Yulvjy5VsNhORepJxjeKuQAAAA?rs=1&pid=ImgDetMain');
+        width:100%;
+        color:white;
+        margin:0;
+        background-size: cover;
+        background-repeat: no-repeat;
+        }
+
+        .image-overlay {
+            position: relative;
+            display: block;
+        }
+        .image-overlay img {
+            width: 100%;
+            height: 10%;
+            opacity: 0.5;
+        }
+        .overlay-text {
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            transform: translate(-10%, -10%);
+            color: white;
+            background-color: rgba(0, 0, 0, 0);
+            padding: 10px;
+            border-radius: 0px;
+        }
+        #middle1 {
+            top: 20%;
+            left: 20%;
+            transform: translate(-10%, -10%); /* Center horizontally and vertically */
+        }
+        #middlep{
+             top: 30%;
+            left: 13%;
+            transform: translate(-10%, -10%); /* Center horizontally and vertically */
+        }
+        #middle2 {
+            top: 40%;
+            left: 13%;
+            transform: translate(-10%, -10%); /* Center horizontally and vertically */
+        }
+        .overlay-bottom{
+            top: 50%;
+            left: 80%;
+            transform: translate(-10%, -10%); /* Center horizontally and vertically */
+        }
+        #courses{
+           background-image: url('https://media.istockphoto.com/id/1349346348/vector/abstract-background-4k-pink-lilac-lavender-black-white-light-dark-waves-and-lines.jpg?s=612x612&w=0&k=20&c=OkHpH2B7lOb61zHbrsG24LAecoOSj7w7y0QL_wemV8s=');
+           background-size: cover;
+
+        };
+        @keyframes fade-in-left {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+         @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        .fade-in-left {
+            animation: fadeInLeft 4s ease-in-out;
+        }
+        .animated-text {
+            animation: fade-in-left 2s ease-in-out;
+        }
+
+        @keyframes blink {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .blink {
+            animation: blink 2s infinite;
+        }
+        #enroll_btn:hover {
+            animation: tada 1s;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row " id="header_row">
+            <div class="col-md-6 col-sm-2 shadow-lg  p-2">
+                <h3 class="fw-bold py-3"><span><img src="{% static 'images/learn.png' %}" width="40"></span>ΣｄｕＢｏoｋ</h3>
+            </div>
+            <div class="col-md-3 shadow-lg  p-2 text-start">
+                <a href="{% url 'dashboard' %}" class="btn py-3 fw-bold fs-5">Home</a>
+                <a href="#" class="btn py-3 fw-bold fs-5">Courses</a>
+                <a href="" class="btn py-3 fw-bold fs-5">Contact Us</a>
+            </div>
+            <div class="col-md-2 shadow-lg  p-2 text-start">
+                <p class="fs-4 fw-bold py-3 text-uppercase">WELCOME {{request.user}}</p>
+            </div>
+            <div class="col-md-1 shadow-lg  p-2 text-start">
+                <a href="{% url 'logout' %}" class="btn py-3 fw-bold fs-5"><img width="30" src="https://th.bing.com/th/id/R.af9241a06a7c60b176b4a553947a8cf2?rik=8Utg9dSMKUczrQ&riu=http%3a%2f%2fwolfland.net%2fpower.png&ehk=MftXbLT%2bI0whvum3wmWxci2E1Vl1K%2fGk2IY1BBzhfIE%3d&risl=&pid=ImgRaw&r=0"></a>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 " id="courses">
+                <div class="image-overlay ">
+                    <img  src="https://www.soholearninghub.com/wp-content/uploads/2021/01/tips-for-taking-online-classes.jpeg" alt="Image">
+                    <div class="overlay-text overlay-top fw-bold fs-1 fade-in-left">{{ course.title }}</div>
+                    <div class="overlay-text overlay-middle  fs-5 fade-in-left" id="middle1">{{ course.description }}</div>
+                    <div class="overlay-text overlay-middle fw-bold fs-5 fade-in-left" id="middle2">Course Fees:{{ course.price }}</div>
+                    <div class="overlay-text overlay-bottom fade-in-left"><button type="button" class="btn btn-lg" id="enroll_btn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBookingForm" aria-controls="offcanvasBookingForm">Enroll Now</button></div>
+                    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasBookingForm" aria-labelledby="offcanvasBookingFormLabel">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title text-center" id="offcanvasBookingFormLabel">Registration for {{course.title}}</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body ">
+                            <form method="post">
+                                {% csrf_token %}
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Name</label>
+                                    <input type="text" class="form-control" id="name" name="name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email" name="email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label  class="form-label">Course Name</label>
+                                    <input type="text" class="form-control"  name="course" value="{{course.title}}" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Duration</label>
+                                    <input type="text" class="form-control"  name="duration" value="{{course.duration}}" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label  class="form-label">Total Fees</label>
+                                    <input type="number" class="form-control"  name="price" value="{{course.price}}" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label  class="form-label">Date</label>
+                                    <input type="text" class="form-control"  name="date" value="{% now 'Y-m-d H:i:s' %}" readonly>
+                                </div>
+                                <button type="submit" class="btn btn-primary mx-auto d-block">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

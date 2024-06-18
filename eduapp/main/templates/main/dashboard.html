@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>dashboard</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.js"></script>
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="../static/main/animate.min.css" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="{% static 'main/styles.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{% static 'js/scripts.js' %}"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <style>
+
+        #header_row,#btn1,#row1 {
+            background-color: #871287;
+
+        }
+        .carousel-caption{
+        color :#871287;
+        }
+
+        @keyframes fade-in-left {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+         @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        .fade-in-left {
+            animation: fadeInLeft 4s ease-in-out;
+        }
+        .animated-text {
+            animation: fade-in-left 2s ease-in-out;
+        }
+
+        @keyframes blink {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .blink {
+            animation: blink 2s infinite;
+        }
+        .card:hover {
+            animation: tada 1s;
+        }
+
+        #quote4 {
+        background-image:url('https://th.bing.com/th/id/OIP.Yulvjy5VsNhORepJxjeKuQAAAA?rs=1&pid=ImgDetMain');
+        width:100%;
+        color:white;
+        margin:0;
+        background-size: cover;
+        background-repeat: no-repeat;
+        }
+
+        .section_our_solution .row {
+  align-items: center;
+}
+
+.our_solution_category {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.our_solution_category .solution_cards_box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.solution_cards_box .solution_card {
+  flex: 0 50%;
+  background: #fff;
+  box-shadow: 0 2px 4px 0 rgba(136, 144, 195, 0.2),
+    0 5px 15px 0 rgba(37, 44, 97, 0.15);
+  border-radius: 15px;
+  margin: 8px;
+  padding: 10px 15px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  min-height: 265px;
+  transition: 0.7s;
+}
+
+.solution_cards_box .solution_card:hover {
+  background: #309df0;
+  color: #fff;
+  transform: scale(1.1);
+  z-index: 9;
+}
+
+.solution_cards_box .solution_card:hover::before {
+  background: rgb(85 108 214 / 10%);
+}
+
+.solution_cards_box .solution_card:hover .solu_title h3,
+.solution_cards_box .solution_card:hover .solu_description p {
+  color: #fff;
+}
+
+.solution_cards_box .solution_card:before {
+  content: "";
+  position: absolute;
+  background: rgb(85 108 214 / 5%);
+  width: 170px;
+  height: 400px;
+  z-index: -1;
+  transform: rotate(42deg);
+  right: -56px;
+  top: -23px;
+  border-radius: 35px;
+}
+
+.solution_cards_box .solution_card:hover .solu_description  a{
+  background: #fff !important;
+  color: #309df0;
+  color:black;
+}
+
+.solution_card .solu_title h3 {
+  color: #212121;
+  font-size: 1.3rem;
+  margin-top: 13px;
+  margin-bottom: 13px;
+}
+
+.solution_card .solu_description p {
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+
+.solution_card .solu_description  a {
+  border: 0;
+  border-radius: 15px;
+  background: linear-gradient(
+    140deg,
+    #42c3ca 0%,
+    #42c3ca 50%,
+    #42c3cac7 75%
+  ) !important;
+  color: #fff;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 5px 16px;
+}
+
+.our_solution_content h1 {
+  text-transform: capitalize;
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+}
+
+.hover_color_bubble {
+  position: absolute;
+  background: rgb(54 81 207 / 15%);
+  width: 100rem;
+  height: 100rem;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  top: 16rem;
+  border-radius: 50%;
+  transform: rotate(-36deg);
+  left: -18rem;
+  transition: 0.7s;
+}
+
+.solution_cards_box .solution_card:hover .hover_color_bubble {
+  top: 0rem;
+}
+
+.solution_cards_box .solution_card .so_top_icon {
+  width: 60px;
+  color: black;
+  height: 60px;
+  border-radius: 50%;
+  background: #fff;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.solution_cards_box .solution_card .so_top_icon img {
+  width: 40px;
+  height: 50px;
+  color:black;
+  object-fit: contain;
+}
+
+/*start media query*/
+@media screen and (min-width: 320px) {
+  .sol_card_top_3 {
+    position: relative;
+    top: 0;
+  }
+
+  .our_solution_category {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .our_solution_category .solution_cards_box {
+    flex: auto;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .our_solution_category .solution_cards_box {
+    flex: 1;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .sol_card_top_3 {
+    position: relative;
+    top: -3rem;
+  }}
+  .our_solution_category {
+    width: 50%;
+    margin: 0 auto;
+  }
+
+        #heading {
+	font-family: 'Dancing Script', cursive;
+	color:#871287;
+
+}
+
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row " id="header_row">
+            <div class="col-md-4 col-sm-2 shadow-lg  p-2">
+                <h3 class="fw-bold py-3"><span><img src="{% static 'images/learn.png' %}" width="40"></span>ΣｄｕＢｏoｋ</h3>
+            </div>
+            <div class="col-md-4 shadow-lg  p-2 text-end">
+                <a href="#home" class="btn py-3 fw-bold fs-5">  Home </a>
+                <a href="#courses" class="btn py-3 fw-bold fs-5">Courses</a>
+                <a href="#contact" class="btn py-3 fw-bold fs-5">Contact Us</a>
+
+                <!--<a href="{% url 'login1' %}" class="btn py-3 fw-bold fs-5">Login</a>-->
+            </div>
+            <div class="col-md-2 shadow-lg  p-2 text-start">
+                <p class="fs-4 fw-bold py-3">WELCOME {{request.user}}</p>
+            </div>
+            <div class="col-md-2 shadow-lg  p-2 text-start">
+                <a href="{% url 'logout' %}" class="btn py-3 fw-bold fs-5">Log out</a>
+            </div>
+        </div>
+
+        <!-- slide1-->
+        <div class="row">
+            <div class="col-md-12" id="row1">
+                <div id="carouselExampleTouch" class="carousel slide " data-mdb-touch="true">
+                    <div class="carousel-indicators">
+                        <button
+                          type="button"
+                          data-mdb-target="#carouselExampleTouch"
+                          data-mdb-slide-to="0"
+                          class="active"
+                          aria-current="true"
+                          aria-label="Slide 1"
+                        ></button>
+                        <button
+                          type="button"
+                          data-mdb-target="#carouselExampleTouch"
+                          data-mdb-slide-to="1"
+                          aria-label="Slide 2"
+                        ></button>
+                        <button
+                          type="button"
+                          data-mdb-target="#carouselExampleTouch"
+                          data-mdb-slide-to="2"
+                          aria-label="Slide 3"
+                        ></button>
+                      </div>
+                      <div class="carousel-inner ">
+                        <div class="carousel-item active">
+                          <img src="../static/images/carousel-2.jpg" class="d-block w-100  py-2 " alt="Wild Landscape"/>
+                          <div class="carousel-caption d-none d-md-block">
+                            <h2 class="fw-bold">Best Online Courses</h2>
+                            <h3>Get Educated Online From Your Home</h3>
+                          </div>
+                        </div>
+                        <div class="carousel-item">
+                          <img src="../static/images/carousel-1.jpg" class="d-block w-100 py-2" alt="Camera"/>
+                          <div class="carousel-caption d-none d-md-block">
+                            <h2 class="fw-bold">All the skills you need in one place</h2>
+                            <h3>Edubook support your professional Development</h3>
+                          </div>
+                        </div>
+                        <div class="carousel-item">
+                          <img src="../static/images/cat-2.jpg" class="d-block w-100" alt="Exotic Fruits"/>
+                          <div class="carousel-caption d-none d-md-block">
+                            <h2 class="fw-bold">Skilled Instructors</h2>
+                            <h3>Learn through Online platform</h3>
+                          </div>
+                        </div>
+                      </div>
+                      <button class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleTouch" data-mdb-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                      </button>
+                      <button class="carousel-control-next" type="button" data-mdb-target="#carouselExampleTouch" data-mdb-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                      </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    <!-- slideshow section -->
+        <!--<div class="row">
+                        <div class="mySlides ">
+                            <img src="{% static 'images/quote_1.png' %}"  width="100%" alt="Slide 1">
+                        </div>
+                        <div class="mySlides ml-0 m-0">
+                            <img src="{% static 'images/quote_2.jpg' %}" width="100%" alt="Slide 2">
+                        </div>
+                        <div class="mySlides ml-0 m-0">
+                            <img src="{% static 'images/quote_4.jpg' %}" width="100%" alt="Slide 3">
+                        </div>
+                        <div class="mySlides ml-0 m-0 vh-100 d-flex justify-content-center align-items-center" id="quote4">
+                            <h2 class="text-center">All the skills you need in one place<br>Edubook support your professional Development</h2>
+                        </div>
+
+        </div>
+        <button class="display-left" onclick="plusDivs(-1)">&#10094;</button>
+        <button class="display-right" onclick="plusDivs(1)">&#10095;</button>-->
+
+        <!-- about -->
+    <div class="row fade-in-left" id="home">
+        <div class="col-md-10">
+            <div class="container-xxl py-5">
+                <div class="container">
+                    <div class="row g-5">
+                        <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
+                            <div class="position-relative h-100 ">
+                                <img class="img-fluid position-absolute w-100 h-100" src="../static/images/about.jpg" alt="" style="object-fit: cover;">
+                            </div>
+                        </div>
+                        <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                            <h4 class="section-title bg-white text-start text-primary pe-3 animated-text">About Us</h4>
+                            <h1 class="mb-4 fade-in-left">Welcome to   ΣｄｕＢｏoｋ</h1>
+                            <p class="fade-in-left">Our programs focus on developing the entire education technology and innovation sector in information technology.</p>
+                            <p class="fade-in-left">Edubook is India's education technology and innovation industry hub. Through connection and collaboration, we accelerate India's EdTech ecosystem globally.</p>
+                            <p class="fade-in-left">As education transitions to borderless digital delivery, our diverse ecosystem will impact the future of learning globally from India.</p>
+                            <p class="fade-in-left">We have a range of services supporting EdTech companies at each stage of their journey, whilst also connecting education providers and industry participants into the broader ecosystem.</p>
+                            <div class="row gy-2 gx-4 mb-4">
+                                <div class="col-sm-6 fade-in-left">
+                                    <p class="mb-0 "><i class="fa fa-arrow-right text-primary me-2 "></i>Online Classes</p>
+                                </div>
+                                <div class="col-sm-6 fade-in-left">
+                                    <p class="mb-0"><i class="fas fa-arrow-right text-primary me-2"></i>Skilled Instructors</p>
+                                </div>
+                                <div class="col-sm-6 fade-in-left">
+                                    <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Resume Creation</p>
+                                </div>
+                                <div class="col-sm-6 fade-in-left">
+                                    <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Interview preparations</p>
+                                </div>
+                                <div class="col-sm-6 fade-in-left">
+                                    <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Placement support</p>
+                                </div>
+                                <div class="col-sm-6 fade-in-left">
+                                    <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>International Certificate</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    <!--<section id="home">-->
+        <!--<div class="row">
+            <div class="col-md-10 m-5 py-3 " >
+
+                <h1  id="home1">Welcome to Edubook</h1>
+                <h4>Our programs focus on developing the entire education technology and innovation sector in information technology.</h4>
+                <p>Edubook is India's education technology and innovation industry hub. Through connection and collaboration, we accelerate India's EdTech ecosystem globally.</p>
+                <p>We connect a community of education providers, industry participants, and EdTech entrepreneurs committed to reimagining learning in the digital age.</p>
+                <p>As education transitions to borderless digital delivery, our diverse ecosystem will impact the future of learning globally from India.</p>
+                <p>We have a range of services supporting EdTech companies at each stage of their journey, whilst also connecting education providers and industry participants into the broader ecosystem.</p>
+
+            </div>
+
+        </div>
+        <hr>-->
+        <!--end section>-->
+
+
+
+        <!-- course----- -->
+        <div class="row" id="courses">
+            <h4 class=" m-3 text-center bg-white text-start text-primary pe-3 animated-text">Popular Courses</h4>
+            <div class="card-group py-3">
+                {% for course in course %}
+              <div class="card m-3 card-custom" >
+                  {% if course.image %}
+                <img class="card-img-top" src="{{course.image.url}}" data-width="20%" alt="Card image cap">
+                  {% endif %}
+                <div class="card-body" >
+                  <h5 class="card-title">{{course.title}}</h5>
+                  <p class="card-text">{{course.trainer_name}}</p>
+                  <p class="card-title">{{ course.price}}</p>
+                    <a href="{% url 'view_course_description' id=course.id %}" style="background-color: #871287;" class="btn  text-white" >Enroll Now</a>
+                </div>
+              </div>
+                {% endfor %}
+
+            </div>
+        </div>
+        <hr>
+
+        <!-- videomeet  -->
+        <!--<div class="row">
+            <div class="container vh-20 d-flex d-flex justify-content-around py-3">
+            <div class="col-md-8 ">
+                <h3 class="text-center">Online Platform</h3>
+                <div class="card">
+                    <p class="text-center">Learn course through Online platform</p>
+                    <a href="#" class="btn  text-white m-2" style="background-color: #871287;">Class Room</a><br>
+                </div>
+            </div>
+            </div>
+        </div>
+        <hr>-->
+        <!-- interview preparations -->
+
+        <div class="row">
+            <h4 class="text-center bg-white text-start text-primary pe-3 animated-text" >Interview preparations</h4>
+            <br><br>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+            <div class="section_our_solution">
+              <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                  <div class="our_solution_category">
+                    <div class="solution_cards_box">
+                      <div class="solution_card">
+                        <div class="hover_color_bubble"></div>
+                        <div class="so_top_icon">
+                            <h3>1</h3>
+                        </div>
+                        <div class="solu_title">
+                          <h3>Online Class</h3>
+                        </div>
+                        <div class="solu_description">
+                          <p>
+                            Get educated online from your home
+                          </p>
+                          <a href="{% url 'online_class' %}" class="read_more_btn">Explore</a>
+                        </div>
+                      </div>
+                      <div class="solution_card">
+                        <div class="hover_color_bubble"></div>
+                        <div class="so_top_icon">
+                            <h3>4</h3>
+                        </div>
+                        <div class="solu_title">
+                          <h3>Certificate Upload </h3>
+                        </div>
+                        <div class="solu_description">
+                          <p>
+
+                          </p>
+                          <a href="{% url 'certificate' %}" class="read_more_btn">Explore</a>
+                        </div>
+                      </div>
+                    </div>
+                    <!--  -->
+                    <div class="solution_cards_box ">
+                      <div class="solution_card">
+                        <div class="hover_color_bubble"></div>
+                        <div class="so_top_icon">
+                            <h3>2</h3>
+                        </div>
+                        <div class="solu_title">
+                          <h3> Interview Preparations</h3>
+                        </div>
+                        <div class="solu_description">
+                          <p>
+                            Online Mock Test
+                          </p>
+                          <a href="{% url 'mocktest' %}" class="read_more_btn">Explore</a>
+                        </div>
+                      </div>
+                      <div class="solution_card">
+                        <div class="hover_color_bubble"></div>
+                        <div class="so_top_icon">
+                          <h3>5</h3>
+                        </div>
+                        <div class="solu_title">
+                          <h3>Placements</h3>
+                        </div>
+                        <div class="solu_description">
+
+                          <a href="{% url 'placement' %}" class="read_more_btn">Explore</a>
+                        </div>
+                      </div>
+                    </div>
+
+                      <div class="solution_cards_box sol_card_top_4">
+                      <div class="solution_card">
+                        <div class="hover_color_bubble"></div>
+                        <div class="so_top_icon">
+                            <h3>3</h3>
+                        </div>
+                        <div class="solu_title">
+                          <h3>Resume Creation</h3>
+                        </div>
+                        <div class="solu_description">
+                          <p>
+                            Resume building workshop
+                          </p>
+                          <a href="{% url 'resume_creation' %}" class="read_more_btn">Explore</a>
+                        </div>
+                      </div>
+                      <div class="solution_card">
+                        <div class="hover_color_bubble"></div>
+                        <div class="so_top_icon">
+                          <h3>6</h3>
+                        </div>
+                        <div class="solu_title">
+                          <h3>Top Company</h3>
+                        </div>
+                        <div class="solu_description">
+
+                          <a href="{% url 'company' %}" class="read_more_btn">Explore</a>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <br><br>
+
+        <!-- contact -->
+        <div class="row bg-dark text-white">
+            <div class="col-md-10 m-5 py-3 ">
+                <section id="contact">
+                    <h2>Contact Us</h2>
+                    <div class="contact-columns d-flex justify-content-around">
+                        <div class="column">
+                            <ul>
+                                {% for office in contact_info.offices %}
+                                    <li>{{ office }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="column">
+                            <ul>
+                                <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+  <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/>
+</svg> &nbsp;<a href="mailto:{{ contact_info.email1 }}" class="text-white">{{ contact_info.email1 }}</a></li>
+                                <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+  <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/>
+</svg>&nbsp;<a href="mailto:{{ contact_info.email2 }}" class="text-white">{{ contact_info.email2 }}</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
